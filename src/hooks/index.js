@@ -3,7 +3,6 @@ import moment from 'moment';
 import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers/index';
 
-
 // Custom hook to handle tasks
 export const useTasks = selectedProject => {
   const [tasks, setTasks] = useState([]);
@@ -27,8 +26,9 @@ export const useTasks = selectedProject => {
         }));
 
       setTasks(
-        selectedProject === 'NEXT_7'? newTasks.filter(task => moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 && task.archived !== true)
-        : newTasks.filter(task => task.archived !== true)
+        selectedProject === 'NEXT_7' 
+          ? newTasks.filter(task => moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 && task.archived !== true)
+          : newTasks.filter(task => task.archived !== true)
         );
 
         setArchivedTasks(newTasks.filter(task => task.archived !== false));

@@ -25,11 +25,11 @@ export const IndividualProject = ({ project }) => {
       <span className="sidebar__dot">•</span>
       <span className="sidebar__project-name">{project.name}</span>
       <span 
-      className="sidebar__project-delete" 
-      data-testid="delete-project"
-      role="button" 
-      onKeyDown={() => setShowConfirm(!showConfirm)}
-      onClick={() => setShowConfirm(!showConfirm)}
+        className="sidebar__project-delete" 
+        data-testid="delete-project"
+        role="button" 
+        onKeyDown={() => setShowConfirm(!showConfirm)}
+        onClick={() => setShowConfirm(!showConfirm)}
       >
         <FaTrashAlt />
         {showConfirm && (
@@ -41,12 +41,12 @@ export const IndividualProject = ({ project }) => {
                 onClick={() => deleteProject(project.docId)}
               >
                 Delete
+                </button>
                 <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
-              </button>
             </div>
           </div>
         )}
       </span>
     </>
-  )
-}
+  );
+};
